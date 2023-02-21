@@ -1,0 +1,37 @@
+.app__navbar {
+    background-color: #241e20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 24px gray;
+}
+
+.app__navbar_logo {
+    width: 140px;
+}
+
+.app__navbar_title {
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.app__selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.app__output {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.app__card {
+    width: 40%;
+    justify-content: space-around;
+
+}
