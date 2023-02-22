@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-import { keyChord, keyNote } from '../lib/music';
+import { keyChord, keyNote, chordNote } from '../lib/music';
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
 
   const [noteList, setNoteList] = useState({})
   const [chordList, setChordList] = useState({})
+  const [chordNoteList, setChordNoteList] = useState({})
 
   const handleChange = (event) => {
     setRootNote(event.target.value);
@@ -35,8 +36,10 @@ function App() {
         <p className="app__navbar_title">Music Theory Cheatsheet</p>
       </div>
 
+      <br></br>
+
       <div className="app__selection">
-        <Box sx={{ minWidth: 400 }} >
+        <Box sx={{ minWidth: 360 }} >
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Select Root Note</InputLabel>
             <Select
@@ -52,6 +55,7 @@ function App() {
         </Box>
       </div>
 
+      <br></br><br></br>
 
       <div>
         {
@@ -59,50 +63,61 @@ function App() {
             <div className="app__output">
 
               <div className="app__card">
-                <p>{rootNote} Major Notes</p>
-                <ul>
+                <p className="app__card_description">Notes in {rootNote} Major scale</p>
+                <div className="list">
                   {
-                    keyNote(rootNote).majorNote.map(note => <li>{note}</li>)
+                    keyNote(rootNote).majorNote.map(note => <p className="list_item">{note}</p>)
                   }
-                </ul>
-                <p>{rootNote} Minor Notes</p>
-                <ul>
+                </div>
+                <br></br><br></br>
+                <p className="app__card_description">Notes in {rootNote} Minor scale</p>
+                <div className="list">
                   {
-                    keyNote(rootNote).minorNote.map(note => <li>{note}</li>)
+                    keyNote(rootNote).minorNote.map(note => <p className="list_item">{note}</p>)
                   }
-                </ul>
+                </div>
               </div>
 
-
+              <div className="app__card">
+                <p className="app__card_description">Chords in {rootNote} Major key</p>
+                <div className="list">
+                  {
+                    keyChord(rootNote).majorScale.map(note => <p className="list_item_chord">{note}</p>)
+                  }
+                </div>
+                <br></br><br></br>
+                <p className="app__card_description">Chords in {rootNote} Minor key</p>
+                <div className="list">
+                  {
+                    keyChord(rootNote).minorScale.map(note => <p className="list_item_chord">{note}</p>)
+                  }
+                </div>
+              </div>
 
               <div className="app__card">
-                <p>{rootNote} Major Chords</p>
-                <ul>
+                <p className="app__card_description">Notes to play {rootNote} Major chord</p>
+                <div className="list">
                   {
-                    keyChord(rootNote).majorScale.map(note => <li>{note}</li>)
+                    chordNote(rootNote).majorNote.map(note => <p className="list_item">{note}</p>)
                   }
-                </ul>
+                </div>
 
-                <p>{rootNote} Minor Chords</p>
-                <ul>
+                <br></br><br></br>
+
+                <p className="app__card_description">Notes to play {rootNote} Minor chord</p>
+                <div className="list">
                   {
-                    keyChord(rootNote).minorScale.map(note => <li>{note}</li>)
+                    chordNote(rootNote).minorNote.map(note => <p className="list_item">{note}</p>)
                   }
-                </ul>
+                </div>
               </div>
 
             </div>
-
-
-
-
-
-
             : null
         }
-      </div>
+      </div >
 
-    </div>
+    </div >
 
   )
 }

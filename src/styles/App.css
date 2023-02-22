@@ -31,7 +31,44 @@
 }
 
 .app__card {
-    width: 40%;
-    justify-content: space-around;
+    width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 3px 3px 10px 0px rgb(198, 197, 197);
+}
 
+.app__card_description {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.list_item {
+    margin: 3px;
+    width: 25px;
+    background-color: rgb(255, 195, 207);
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+
+.list_item_chord {
+    margin: 3px;
+    width: 70px;
+    background-color: rgb(255, 195, 207);
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bold;
 }

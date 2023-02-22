@@ -116,13 +116,26 @@ export const keyNote = (base) => {
 
     scale(base)
 
-    majorNote.push(majorScale[0])
-    majorNote.push(majorScale[2])
-    majorNote.push(majorScale[4])
+    return {
+        majorNote: majorScale,
+        minorNote: minorScale
+    }
+}
 
-    minorNote.push(minorScale[0])
-    minorNote.push(minorScale[2])
-    minorNote.push(minorScale[4])
+export const chordNote = (base) => {
+
+    if (base === '') {
+        return {
+            majorNote: [],
+            minorNote: []
+        }
+    }
+
+    scale(base)
+
+    majorNote = [majorScale[0], majorScale[2], majorScale[4]]
+    minorNote = [minorScale[0], minorScale[2], minorScale[4]]
+
 
     return {
         majorNote: majorNote,
