@@ -116,9 +116,7 @@ function App() {
             : null
         }
       </div >
-
     </div >
-
   )
 }
 
